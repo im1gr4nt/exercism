@@ -7,13 +7,13 @@ def eat_ghost(power_pellet_active, touching_ghost):
     :param power_pellet_active: bool - does the player have an active power pellet?
     :param touching_ghost: bool - is the player touching a ghost?
     :return: bool - can the ghost be eaten?
-    """
-
     if power_pellet_active == True and touching_ghost == True:
         return True
     else:
         return False 
 
+    """
+    return power_pellet_active and touching_ghost 
 
 def score(touching_power_pellet, touching_dot):
     """Verify that Pac-Man has scored when a power pellet or dot has been eaten.
@@ -21,7 +21,6 @@ def score(touching_power_pellet, touching_dot):
     :param touching_power_pellet: bool - does the player have an active power pellet?
     :param touching_dot: bool - is the player touching a dot?
     :return: bool - has the player scored or not?
-    """
 
     if touching_power_pellet == True:
         return True
@@ -29,7 +28,8 @@ def score(touching_power_pellet, touching_dot):
         return True
     else:
         return False
-
+    """
+    return touching_power_pellet or touching_dot 
 
 def lose(power_pellet_active, touching_ghost):
     """Trigger the game loop to end (GAME OVER) when Pac-Man touches a ghost without his power pellet.
@@ -37,13 +37,13 @@ def lose(power_pellet_active, touching_ghost):
     :param power_pellet_active: bool - does the player have an active power pellet?
     :param touching_ghost: bool - is the player touching a ghost?
     :return: bool - has the player lost the game?
-    """
 
     if power_pellet_active == False and touching_ghost == True:
         return True
     else:
         return False
-
+    """
+    return (not power_pellet_active) and touching_ghost 
 
 def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     """Trigger the victory event when all dots have been eaten.
@@ -52,7 +52,6 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     :param power_pellet_active: bool - does the player have an active power pellet?
     :param touching_ghost: bool - is the player touching a ghost?
     :return: bool - has the player won the game?
-    """
 
     if has_eaten_all_dots == True and power_pellet_active == True and touching_ghost == False:
         return True
@@ -62,4 +61,5 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
         return True
     else: 
         return False
-
+    """
+    return has_eaten_all_dots and not lose(power_pellet_active, touching_ghost)
