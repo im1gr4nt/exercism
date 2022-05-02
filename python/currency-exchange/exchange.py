@@ -6,7 +6,9 @@ def exchange_money(budget, exchange_rate):
     :return: float - exchanged value of the foreign currency you can receive.
     """
 
-    pass
+    exchanged_currency = budget / exchange_rate
+    return exchanged_currency
+
 
 
 def get_change(budget, exchanging_value):
@@ -17,7 +19,8 @@ def get_change(budget, exchanging_value):
     :return: float - amount left of your starting currency after exchanging.
     """
 
-    pass
+    is_left = budget - exchanging_value 
+    return is_left
 
 
 def get_value_of_bills(denomination, number_of_bills):
@@ -28,8 +31,8 @@ def get_value_of_bills(denomination, number_of_bills):
     :return: int - total value of bills you now have.
     """
 
-    pass
-
+    bills_value = denomination * number_of_bills
+    return bills_value
 
 def get_number_of_bills(budget, denomination):
     """
